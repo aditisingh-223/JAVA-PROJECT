@@ -34,6 +34,13 @@ class Order {
     int qty[] = new int[10];
     int count = 0;
 
+    static int orderCounter = 1000;
+    int orderId;
+    
+    Order() {
+    orderId = ++orderCounter;
+}
+
     void addItem(FoodItem f, int q) {
         if (count < 10) {
             items[count] = f;
@@ -47,6 +54,7 @@ class Order {
     void generateBill(String customerName) {
         double subtotal = 0;
         int totalItems = 0;
+        System.out.println("Order ID: " + orderId);
 
         // Calculate subtotal and total items
         for (int i = 0; i < count; i++) {
